@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayDream AI - Divine Coding Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+</head>
+<body>
+    <!-- Divine Golden Title with Light Effects -->
+    <header class="divine-header">
+        <div class="light-rays"></div>
+        <div class="floating-clouds">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+        </div>
+        <div class="particles"></div>
+        <h1 class="divine-title">
+            <span class="golden-text">DayDream</span>
+            <span class="subtitle">AI Coding Experience</span>
+        </h1>
+    </header>
+
+    <!-- Main Application Interface -->
+    <main class="app-container">
+        <!-- Left Panel: AI Chat & Prompt Library -->
+        <section class="panel left-panel">
+            <div class="panel-header">
+                <h2>AI Assistant</h2>
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="chat">Chat</button>
+                    <button class="tab-btn" data-tab="prompts">Prompts</button>
+                </div>
+            </div>
+            
+            <!-- Chat Interface -->
+            <div class="tab-content active" id="chat-tab">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ai-message">
+                            <div class="message-content">
+                                <p>Hello! I'm your AI coding assistant. Ask me to create components, write functions, or help with any coding task!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" placeholder="Ask me to create something..." class="form-control">
+                        <button id="sendChat" class="btn btn--primary">Send</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prompt Library -->
+            <div class="tab-content" id="prompts-tab">
+                <div class="prompt-library">
+                    <div class="prompt-search">
+                        <input type="text" id="promptSearch" placeholder="Search prompts..." class="form-control">
+                    </div>
+                    <div class="prompt-categories">
+                        <select id="categoryFilter" class="form-control">
+                            <option value="">All Categories</option>
+                            <option value="components">Components</option>
+                            <option value="forms">Forms</option>
+                            <option value="animations">Animations</option>
+                            <option value="visualization">Visualization</option>
+                            <option value="api">API</option>
+                            <option value="layout">Layout</option>
+                        </select>
+                    </div>
+                    <div class="prompt-list" id="promptList">
+                        <!-- Prompts will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Center Panel: Code Editor -->
+        <section class="panel center-panel">
+            <div class="panel-header">
+                <h2>Code Editor</h2>
+                <div class="editor-controls">
+                    <select id="languageSelect" class="form-control">
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                    </select>
+                    <button id="toggleAnnotations" class="btn btn--secondary">Toggle Annotations</button>
+                    <button id="runCode" class="btn btn--primary">Run Code</button>
+                </div>
+            </div>
+            <div class="editor-container">
+                <div class="line-numbers" id="lineNumbers">
+                    <span>1</span>
+                </div>
+                <div class="code-editor-wrapper">
+                    <textarea id="codeEditor" class="code-editor" placeholder="// Start coding here..."></textarea>
+                    <div class="annotations-layer" id="annotationsLayer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Panel: Live Preview & Console -->
+        <section class="panel right-panel">
+            <div class="panel-header">
+                <h2>Live Preview</h2>
+                <div class="preview-controls">
+                    <button id="refreshPreview" class="btn btn--secondary">Refresh</button>
+                    <button id="clearConsole" class="btn btn--outline">Clear Console</button>
+                </div>
+            </div>
+            <div class="preview-container">
+                <div class="preview-frame">
+                    <iframe id="previewFrame" title="Live Preview" sandbox="allow-scripts allow-same-origin"></iframe>
+                </div>
+                <div class="console-output">
+                    <div class="console-header">
+                        <span>Console Output</span>
+                    </div>
+                    <div class="console-messages" id="consoleMessages">
+                        <div class="console-message info">Console ready...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Save Modal -->
+    <div class="modal" id="saveModal">
+        <div class="modal-content">
+            <h3>Save Prompt</h3>
+            <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" id="promptName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Category</label>
+                <select id="promptCategory" class="form-control">
+                    <option value="components">Components</option>
+                    <option value="forms">Forms</option>
+                    <option value="animations">Animations</option>
+                    <option value="visualization">Visualization</option>
+                    <option value="api">API</option>
+                    <option value="layout">Layout</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea id="promptDescription" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button id="cancelSave" class="btn btn--outline">Cancel</button>
+                <button id="confirmSave" class="btn btn--primary">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
